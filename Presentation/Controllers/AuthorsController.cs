@@ -84,7 +84,7 @@ namespace LibraryManagament.Presentation.Controllers
             }
         }
         [HttpGet("search")]
-        public IActionResult SearchAuthors([FromQuery] string name)
+        public IActionResult GetAuthorsContains([FromQuery] string name)
         {
             var authors = _authorService.GetAuthorsContains(name);
             if (!authors.Any())
