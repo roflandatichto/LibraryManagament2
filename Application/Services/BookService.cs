@@ -71,8 +71,8 @@ namespace LibraryManagament.Application.Service
             if (string.IsNullOrWhiteSpace(book.Title))
                 throw new ArgumentException("У книги должно быть название!");
 
-            if (book.PublishedYear < 1450 || book.PublishedYear > DateTime.Now.Year)
-                throw new ArgumentException("Некорректный год публикации!");
+            if (book.PublishedYear > DateTime.Now.Year)
+                throw new ArgumentException("Книга не может быть написана в будущем!!");
 
             var author = _authorRepository.GetAuthor(book.AuthorId);
             if (author == null)
